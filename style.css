@@ -1,0 +1,84 @@
+body {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start {
+    position: fixed;
+    z-index: 2;
+}
+
+#start-back {
+    top: 0.05%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(39, 38, 38, 0.5);
+}
+
+#start-button {
+    font-size: 1.5em;
+    left: 40%;
+    top: 40%;
+    padding: 1em;
+    border-color: blue;
+    background-color: lightblue;
+    border-radius: 1.5em;
+    cursor: pointer;
+}
+
+#game-options {
+    display: flex;
+    width: 75vw;
+    justify-content: space-evenly;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: cornflowerblue;
+    border: 0.33em solid blue;
+}
+
+#game-area {
+    position: relative;
+    z-index: 1;
+    width: 75vw;
+    height: 75vh;
+    background-color: rgb(172, 238, 172);
+    border: 0.33em solid darkgreen;
+}
+
+.monster {
+    background-image: url("./assets/images/skeleton.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 10%;
+    height: 17.7%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    cursor: pointer;
+}
+
+.end-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(39, 38, 38, 0.5);
+}
+
+.end-message {
+    position: absolute;
+    font-size: 1.5em;
+    left: 40.6%;
+    top: 45%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border: solid blue;
+    background-color: lightblue;
+    border-radius: 1.5em;
+    z-index: 2;
+}
