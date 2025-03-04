@@ -12,6 +12,9 @@ body {
 }
 
 #start-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0.05%;
     width: 100%;
     height: 100vh;
@@ -19,14 +22,15 @@ body {
 }
 
 #start-button {
-    font-size: 1.5em;
-    left: 40%;
-    top: 40%;
+    font-size: 1.4em;
+    width: fit-content;
+    height: fit-content;
     padding: 1em;
     border-color: blue;
     background-color: lightblue;
     border-radius: 1.5em;
     cursor: pointer;
+    text-align: center;
 }
 
 #game-options {
@@ -60,6 +64,12 @@ body {
     cursor: pointer;
 }
 
+.gameEndArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .end-back {
     position: absolute;
     width: 100%;
@@ -70,9 +80,8 @@ body {
 
 .end-message {
     position: absolute;
-    font-size: 1.5em;
-    left: 40.6%;
-    top: 45%;
+    font-size: 1.4em;
+    width: fit-content;
     padding-top: 1em;
     padding-bottom: 1em;
     padding-left: 2em;
@@ -81,4 +90,43 @@ body {
     background-color: lightblue;
     border-radius: 1.5em;
     z-index: 2;
+    text-align: center;
 }
+
+/* @media (max-width: 1400px) {
+    #start-button {
+        font-size: 1.2em;
+    }
+
+     .end-message {
+        padding-left: 1.5em;
+
+    }
+}
+
+@media (max-width: 850px) {
+    #start-button {
+        font-size: 1em;
+    }
+
+    .end-message {
+        padding-left: 0em;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 700px) {
+    #start-button {
+        font-size: 0.8em;
+    }
+
+    .end-message {
+        left: 35%;
+        width: 20vw;
+        height: 4vh;
+        padding-top: 0.75em;
+        padding-bottom: 0.6em;
+        padding-left: 0;
+        padding-right: 0;
+    }
+} */

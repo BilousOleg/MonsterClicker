@@ -40,12 +40,14 @@ function func1() {
                     let endMessage = document.createElement("div");
                     end.classList.add("end-back");
                     endMessage.classList.add("end-message");
+                    gameField.classList.add("gameEndArea");
                     gameField.appendChild(end);
                     gameField.appendChild(endMessage);
                     endMessage.textContent = "Победа!";
                     clearInterval(timerInter);
                     clearInterval(spawnInter);
                     clearInterval(jumpInter);
+                    clearTimeout(gameTimeout);
                 }
             })
         }
@@ -65,11 +67,12 @@ function func1() {
         options.timerCounter--;
     }, 1000);
 
-    setTimeout(() => {
+    let gameTimeout = setTimeout(() => {
         let end = document.createElement("div");
         let endMessage = document.createElement("div");
         end.classList.add("end-back");
         endMessage.classList.add("end-message");
+        gameField.classList.add("gameEndArea");
         gameField.appendChild(end);
         gameField.appendChild(endMessage);
         endMessage.textContent = "Поражение...";
