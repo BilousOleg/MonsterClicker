@@ -27,7 +27,12 @@ body {
 #start-button {
     font-size: 1.5em;
     font-weight: 800;
-    color: black;
+    color: white;
+    text-shadow: 
+        -0.07em -0.07em 0 black,  
+        0.07em -0.07em 0 black,
+        -0.07em  0.07em 0 black,
+        0.07em  0.07em 0 black;
     width: fit-content;
     height: fit-content;
     padding: 1em;
@@ -45,6 +50,12 @@ body {
     justify-content: space-evenly;
     font-size: 1.5em;
     font-weight: bold;
+    color: white;
+    text-shadow: 
+        -0.062em -0.062em 0 black,  
+        0.062em -0.062em 0 black,
+        -0.062em  0.062em 0 black,
+        0.062em  0.062em 0 black;
     background-image: url(./assets/images/minecraft-stone-background.jpg);
     border: 0.22em solid black;
 }
@@ -86,6 +97,11 @@ body {
     font-size: 1.5em;
     font-weight: 800;
     color: white;
+    text-shadow: 
+        -0.06em -0.06em 0 black,  
+        0.06em -0.06em 0 black,
+        -0.06em  0.06em 0 black,
+        0.06em  0.06em 0 black;
     width: fit-content;
     padding-top: 1em;
     padding-bottom: 1em;
