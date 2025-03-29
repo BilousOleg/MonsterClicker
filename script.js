@@ -9,10 +9,11 @@ const monsterArray = [];
 let points = 0;
 
 class Monster{
-    constructor(points, jumpDelay, image, size){
+    constructor(points, jumpDelay, image, sound, size){
         this.points = points;
         this.jumpDelay = jumpDelay;
         this.image = image;
+        this.Audio = new Audio(`./assets/audio/${sound}.mp3`);
         this.size = size;
         this.element = this.generateDOM();
         this.isDead = false;
@@ -32,6 +33,8 @@ class Monster{
         element.style.top = `${Math.random() * (82.55-0) + 0}%`;
         element.style.backgroundImage = `url("./assets/images/${this.image}.png")`
         element.addEventListener("click", ()=> {
+            this.Audio.volume = 0.25;
+            this.Audio.play();
             this.isDead = true;
         })
         return element;
@@ -51,22 +54,25 @@ const options = {
     monsterTypes: [
         {
             points: 2,
-            jumpDelay: 1,
+            jumpDelay: 1,   //Seconds
             image: "skeleton",
+            sound: "death-skeleton",
             size: 1,
             chance: 55
         },
         {
             points: 4,
-            jumpDelay: 0.7,
+            jumpDelay: 0.7,   //Seconds
             image: "vex",
+            sound: "death-vex",
             size: 0.5,
             chance: 20
         },
         {
             points: 1,
-            jumpDelay: 1.5,
+            jumpDelay: 1.5,   //Seconds
             image: "zombu",
+            sound: "death-zombie",
             size: 1,
             chance: 75
         }
@@ -84,7 +90,7 @@ function func1() {
             while (1) {
                 let type = options.monsterTypes[Math.floor(Math.random() * (options.monsterTypes.length - 0)) + 0];
                 if (Math.random() * 100 <= type.chance) {
-                    let monsterVar = new Monster(type.points, type.jumpDelay, type.image, type.size);
+                    let monsterVar = new Monster(type.points, type.jumpDelay, type.image, type.sound, type.size);
                     monsterArray.push(monsterVar);
                     break;
                 }

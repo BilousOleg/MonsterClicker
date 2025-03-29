@@ -1,5 +1,9 @@
 body {
-    height: 95vh;
+    height: 100vh;
+    width: 100%;
+    background-image: url(./assets/images/minecraft-nether-background2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,32 +19,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 0.05%;
     width: 100%;
     height: 100vh;
     background-color: rgba(39, 38, 38, 0.5);
 }
 
 #start-button {
-    font-size: 1.4em;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: black;
     width: fit-content;
     height: fit-content;
     padding: 1em;
-    border-color: blue;
-    background-color: lightblue;
-    border-radius: 1.5em;
+    border: 0.22em solid black;
+    background-image: url(./assets/images/minecraft-dirt-background.jpg);
     cursor: pointer;
     text-align: center;
 }
 
 #game-options {
-    display: flex;
+    height: 7vh;
     width: 75vw;
+    display: flex;
+    align-items: center;
     justify-content: space-evenly;
     font-size: 1.5em;
     font-weight: bold;
-    background-color: cornflowerblue;
-    border: 0.33em solid blue;
+    background-image: url(./assets/images/minecraft-stone-background.jpg);
+    border: 0.22em solid black;
 }
 
 #game-area {
@@ -48,8 +54,8 @@ body {
     z-index: 1;
     width: 75vw;
     height: 75vh;
-    background-color: rgb(172, 238, 172);
-    border: 0.33em solid darkgreen;
+    background-image: url(./assets/images/minecraft-sand-background.jpg);
+    border: 0.33em solid black;
 }
 
 .monster {
@@ -77,53 +83,16 @@ body {
 
 .end-message {
     position: absolute;
-    font-size: 1.4em;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: white;
     width: fit-content;
     padding-top: 1em;
     padding-bottom: 1em;
     padding-left: 2em;
     padding-right: 2em;
-    border: solid blue;
-    background-color: lightblue;
-    border-radius: 1.5em;
+    border: 0.22em solid black;
+    background-image: url(./assets/images/minecraft-bedrock-background.jpg);
     z-index: 2;
     text-align: center;
 }
-
-/* @media (max-width: 1400px) {
-    #start-button {
-        font-size: 1.2em;
-    }
-
-     .end-message {
-        padding-left: 1.5em;
-
-    }
-}
-
-@media (max-width: 850px) {
-    #start-button {
-        font-size: 1em;
-    }
-
-    .end-message {
-        padding-left: 0em;
-        font-size: 1.2em;
-    }
-}
-
-@media (max-width: 700px) {
-    #start-button {
-        font-size: 0.8em;
-    }
-
-    .end-message {
-        left: 35%;
-        width: 20vw;
-        height: 4vh;
-        padding-top: 0.75em;
-        padding-bottom: 0.6em;
-        padding-left: 0;
-        padding-right: 0;
-    }
-} */
