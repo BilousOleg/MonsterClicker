@@ -48,7 +48,7 @@ class Monster{
 
 const options = {
     monsterDelay: 0.8,    //Seconds
-    timerCounter: 1,    //Seconds
+    timerCounter: 60,    //Seconds
     monsterCap: 5,
     pointsToWin: 45,
     monsterTypes: [
