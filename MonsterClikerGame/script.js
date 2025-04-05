@@ -1,8 +1,18 @@
 const start = document.querySelector(".start");
+
 const startButton = document.querySelector("#start-button");
 const gameField = document.querySelector("#game-area");
+const gameOptions = document.querySelector("#game-options");
+const background = document.body;
 const gameTimer = document.querySelector("#game-timer");
 const gamePoints = document.querySelector("#game-points");
+
+let assetsFolder = "assets2"
+
+startButton.style.backgroundImage = `url("./${assetsFolder}/images/background-button-start.jpg")`;
+gameField.style.backgroundImage = `url("./${assetsFolder}/images/background-field.jpg")`;
+gameOptions.style.backgroundImage = `url("./${assetsFolder}/images/background-options.jpg")`;
+background.style.backgroundImage = `url("./${assetsFolder}/images/background-global.jpg")`;
 
 const monsterArray = [];
 
@@ -13,7 +23,7 @@ class Monster{
         this.points = points;
         this.jumpDelay = jumpDelay;
         this.image = image;
-        this.Audio = new Audio(`./assets/audio/${sound}.mp3`);
+        this.Audio = new Audio(`./${assetsFolder}/audio/${sound}.mp3`);
         this.size = size;
         this.element = this.generateDOM();
         this.isDead = false;
@@ -31,7 +41,7 @@ class Monster{
         element.style.height = `${17.7 * this.size}%`;
         element.style.left = `${Math.random() * (90.08-0) + 0}%`;
         element.style.top = `${Math.random() * (82.55-0) + 0}%`;
-        element.style.backgroundImage = `url("./assets/images/${this.image}.png")`
+        element.style.backgroundImage = `url("./${assetsFolder}/images/${this.image}.png")`
         element.addEventListener("click", ()=> {
             this.Audio.volume = 0.25;
             this.Audio.play();
@@ -48,31 +58,31 @@ class Monster{
 
 const options = {
     monsterDelay: 0.8,    //Seconds
-    timerCounter: 1,    //Seconds
+    timerCounter: 60,    //Seconds
     monsterCap: 5,
     pointsToWin: 45,
     monsterTypes: [
         {
             points: 2,
             jumpDelay: 1,   //Seconds
-            image: "skeleton",
-            sound: "death-skeleton",
+            image: "monster-medium",
+            sound: "death-medium",
             size: 1,
-            chance: 55
+            chance: 50
         },
         {
             points: 4,
             jumpDelay: 0.7,   //Seconds
-            image: "vex",
-            sound: "death-vex",
-            size: 0.5,
+            image: "monster-fast",
+            sound: "death-fast",
+            size: 0.65,
             chance: 20
         },
         {
             points: 1,
             jumpDelay: 1.5,   //Seconds
-            image: "zombu",
-            sound: "death-zombie",
+            image: "monster-low",
+            sound: "death-low",
             size: 1,
             chance: 75
         }
@@ -115,10 +125,11 @@ function func1() {
             let endMessage = document.createElement("div");
             end.classList.add("end-back");
             endMessage.classList.add("end-message");
+            endMessage.style.backgroundImage = `url("./${assetsFolder}/images/background-button-end.jpg")`;
             gameField.classList.add("gameEndArea");
             gameField.appendChild(end);
             gameField.appendChild(endMessage);
-            endMessage.textContent = "Победа!";
+            endMessage.textContent = "Перемога!";
             clearInterval(timerInter);
             clearInterval(spawnInter);
             clearInterval(gameLoop);
@@ -128,7 +139,7 @@ function func1() {
             }
         }
     }, 1);
-    
+
     let timerInter = setInterval(() => {
         gameTimer.textContent = options.timerCounter - 1;
         options.timerCounter--;
@@ -139,10 +150,11 @@ function func1() {
         let endMessage = document.createElement("div");
         end.classList.add("end-back");
         endMessage.classList.add("end-message");
+        endMessage.style.backgroundImage = `url("./${assetsFolder}/images/background-button-end.jpg")`;
         gameField.classList.add("gameEndArea");
         gameField.appendChild(end);
         gameField.appendChild(endMessage);
-        endMessage.textContent = "Поражение...";
+        endMessage.textContent = "Поразка...";
         for (let j = 0; j < monsterArray.length; j++) {
             monsterArray[j].deleteDOM();
         }
