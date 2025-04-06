@@ -48,7 +48,7 @@ body {
     justify-content: space-evenly;
     font-size: 1.5em;
     font-weight: bold;
-    color: white;
+    color: rgb(223, 255, 244);
     text-shadow: 
         -0.062em -0.062em 0 black,  
         0.062em -0.062em 0 black,
@@ -57,11 +57,24 @@ body {
     border: 0.22em solid black;
 }
 
+#time-points {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#your-record {
+    color: rgb(255, 252, 45);
+}
+
 #game-area {
     position: relative;
+    background-size: auto;
+    background-repeat: repeat;
     z-index: 1;
     width: 75vw;
-    height: 75vh;
+    height: 74vh;
     border: 0.33em solid black;
 }
 

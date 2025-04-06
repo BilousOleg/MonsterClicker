@@ -6,12 +6,13 @@ const gameOptions = document.querySelector("#game-options");
 const background = document.body;
 const gameTimer = document.querySelector("#game-timer");
 const gamePoints = document.querySelector("#game-points");
+const userRecord = document.querySelector("#user-record");
 
 let assetsFolder = "assets2"
 
 startButton.style.backgroundImage = `url("./${assetsFolder}/images/background-button-start.jpg")`;
-gameField.style.backgroundImage = `url("./${assetsFolder}/images/background-field.jpg")`;
-gameOptions.style.backgroundImage = `url("./${assetsFolder}/images/background-options.jpg")`;
+gameField.style.backgroundImage = `url("./${assetsFolder}/images/background-field.png")`;
+gameOptions.style.backgroundImage = `url("./${assetsFolder}/images/background-options.png")`;
 background.style.backgroundImage = `url("./${assetsFolder}/images/background-global.jpg")`;
 
 const monsterArray = [];
@@ -43,7 +44,7 @@ class Monster{
         element.style.top = `${Math.random() * (82.55-0) + 0}%`;
         element.style.backgroundImage = `url("./${assetsFolder}/images/${this.image}.png")`
         element.addEventListener("click", ()=> {
-            this.Audio.volume = 0.25;
+            this.Audio.volume = 0.4;
             this.Audio.play();
             this.isDead = true;
         })
@@ -58,7 +59,7 @@ class Monster{
 
 const options = {
     monsterDelay: 0.8,    //Seconds
-    timerCounter: 60,    //Seconds
+    timerCounter: 60.0,    //Seconds
     monsterCap: 5,
     pointsToWin: 45,
     monsterTypes: [
@@ -88,6 +89,9 @@ const options = {
         }
     ],
 }
+
+let timeOfGame = options.timerCounter;
+userRecord.textContent = localStorage.getItem("record");
 
 function func1() {
     document.body.removeChild(start);
@@ -134,6 +138,12 @@ function func1() {
             clearInterval(spawnInter);
             clearInterval(gameLoop);
             clearTimeout(gameTimeout);
+            //console.log(timeOfGame, typeof(timeOfGame), gameTimer.textContent, typeof(gameTimer.textContent));
+            let record = (timeOfGame - gameTimer.textContent).toFixed(1);
+            if (record < localStorage.getItem("record")) {
+                localStorage.setItem("record", `${record}`);
+                userRecord.textContent = localStorage.getItem("record");
+            }
             for (let j = 0; j < monsterArray.length; j++) {
                 monsterArray[j].deleteDOM();
             }
@@ -141,9 +151,9 @@ function func1() {
     }, 1);
 
     let timerInter = setInterval(() => {
-        gameTimer.textContent = options.timerCounter - 1;
-        options.timerCounter--;
-    }, 1000);
+        gameTimer.textContent = (options.timerCounter - 0.1).toFixed(1);
+        options.timerCounter -= 0.1;
+    }, 100);    
 
     let gameTimeout = setTimeout(() => {
         let end = document.createElement("div");
@@ -161,8 +171,8 @@ function func1() {
         clearInterval(timerInter);
         clearInterval(spawnInter);
         clearInterval(gameLoop);
-    }, `${options.timerCounter * 1000}`);
-
+        gameTimer.textContent = "0.0";
+    }, `${(options.timerCounter) * 1000}`);
 }
 
 startButton.addEventListener("click", func1);
