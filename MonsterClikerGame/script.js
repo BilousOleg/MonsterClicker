@@ -8,7 +8,7 @@ const gameTimer = document.querySelector("#game-timer");
 const gamePoints = document.querySelector("#game-points");
 const userRecord = document.querySelector("#user-record");
 
-let assetsFolder = "assets2"
+let assetsFolder = "assets"
 
 startButton.style.backgroundImage = `url("./${assetsFolder}/images/background-button-start.jpg")`;
 gameField.style.backgroundImage = `url("./${assetsFolder}/images/background-field.png")`;
@@ -69,7 +69,7 @@ const options = {
             image: "monster-medium",
             sound: "death-medium",
             size: 1,
-            chance: 50
+            chance: 50      // %
         },
         {
             points: 4,
@@ -77,7 +77,7 @@ const options = {
             image: "monster-fast",
             sound: "death-fast",
             size: 0.65,
-            chance: 20
+            chance: 20        // %
         },
         {
             points: 1,
@@ -85,10 +85,10 @@ const options = {
             image: "monster-low",
             sound: "death-low",
             size: 1,
-            chance: 75
+            chance: 75        // %
         }
     ],
-}
+};
 
 let timeOfGame = options.timerCounter;
 userRecord.textContent = localStorage.getItem("record");
@@ -138,7 +138,6 @@ function func1() {
             clearInterval(spawnInter);
             clearInterval(gameLoop);
             clearTimeout(gameTimeout);
-            //console.log(timeOfGame, typeof(timeOfGame), gameTimer.textContent, typeof(gameTimer.textContent));
             let record = (timeOfGame - gameTimer.textContent).toFixed(1);
             if (record < localStorage.getItem("record")) {
                 localStorage.setItem("record", `${record}`);
