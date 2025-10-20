@@ -1,0 +1,5 @@
+# Ignore no.txt file
+/ no.txt /
+
+# Ignore .pdf files
+**/*.pdf
